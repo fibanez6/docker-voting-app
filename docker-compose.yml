@@ -2,6 +2,7 @@ version: "3"
 
 services:
   vote:
+    image: fibanez/examplevotingapp_vote
     build: ./vote
     command: python app.py
     volumes:
@@ -13,6 +14,7 @@ services:
       - back-tier
 
   result:
+    image: fibanez/examplevotingapp_result
     build: ./result
     command: nodemon server.js
     volumes:
@@ -25,6 +27,7 @@ services:
       - back-tier
 
   worker:
+    image: fibanez/examplevotingapp_worker
     build:
       context: ./worker
     depends_on:
